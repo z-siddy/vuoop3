@@ -1,0 +1,1 @@
+g++ -o main main.cpp headers/studs.h headers/student.h headers/main.h headers/functions.cpp
