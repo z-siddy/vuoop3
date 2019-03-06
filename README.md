@@ -14,6 +14,6 @@
     - ![10000 studentų](https://imgur.com/WYi0t6p)
 - Maximali studentų generacija (29000 studentų):
     - ![29000 studentų](https://imgur.com/xJ9jNFd)
-    Rezultatas nebuvo išvedamas į konsolę, nes per didelis studentų skaičius priverstų programą sunaudoti per didelę dalį atminties bei gali priversti nutraukti tolimesnį programos vykdymą dėl apkrovos procesoriui.
+    - Rezultatas nebuvo išvedamas į konsolę, nes per didelis studentų skaičius priverstų programą sunaudoti per didelę dalį atminties bei gali priversti nutraukti tolimesnį programos vykdymą dėl apkrovos procesoriui.
 - CPU apkrova, kai studentų generuojama daugiau, negu 29000:
     - ![CPU limitas](https://imgur.com/AOXIeAf)
