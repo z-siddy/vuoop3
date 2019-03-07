@@ -17,3 +17,10 @@
     - Rezultatas nebuvo išvedamas į konsolę, nes per didelis studentų skaičius priverstų programą sunaudoti per didelę dalį atminties bei gali priversti nutraukti tolimesnį programos vykdymą dėl apkrovos procesoriui.
 - CPU apkrova, kai studentų generuojama daugiau, negu 29000:
     - ![CPU limitas](https://imgur.com/AOXIeAf.png)
+### Programos testavimas naudojant skirtingus STL konteinerius
+#### Vector
+- ![Vector](https://imgur.com/skcD1pY.png)
+#### List
+- ![List](https://imgur.com/D1COYZj.png)
+#### Deque
+- ![Deque](https://imgur.com/6vJbsoB.png)
