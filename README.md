@@ -7,9 +7,15 @@ Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inž
 ## Versijos
 ### v0.1
 
+Programa nuskaito studento V/P (input), namų darbų bei egzamino rezultatus. Rezultatas išvedamas į konsolę. Vėliau panaudotos dvi skirtingos konteinerių rūšys: C masyvas ir vektorius. Juose saugomi namų darbų rezultatai. Pridėta atsitiktinių pažymių generacija.
+
 ### v0.2
 
+Duomenų nuskaitymas iš ```kursiokai.txt``` failo. Sukurtas sulygiuotų rezultatų išvedimas į konsolę surikiavus studentus.
+
 ### v0.3
+
+Iškeltos funkcijos bei struktūros į atskirus header failus ```/headers/``` aplanke. Panaudoti ```exception handling``` metodai, kad apsaugoti programą nuo neveikimo dėl nesamo duomenų nuskaitymo failo.
 
 ### v0.4
 
