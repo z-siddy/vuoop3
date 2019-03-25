@@ -34,11 +34,8 @@ Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inž
 ### v0.5
 
 #### Programos testavimas naudojant skirtingus STL konteinerius
-##### Vector
 - [Vector](https://imgur.com/skcD1pY.png)
-##### List
 - [List](https://imgur.com/D1COYZj.png)
-##### Deque
 - [Deque](https://imgur.com/6vJbsoB.png)
 
 ### v1.0 Final version
