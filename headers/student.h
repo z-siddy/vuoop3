@@ -7,7 +7,7 @@ struct Student{
 
     string firstName;
     string lastName;
-    double examScore;
+    int examScore;
     vector<double > homework;
 
     double calculateScore();

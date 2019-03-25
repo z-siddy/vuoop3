@@ -57,6 +57,13 @@ void Studs::inputData(){
 
         cout << "Įveskite studento namų darbų užduočių skaičių: " << endl;
         cin >> number;
+        if(!cin)
+        {
+            cout << "Bad input!" << endl;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cin >> number;
+        }
 
         cout << "Ar norite generuoti atsitiktinius pažymius? (1/0)" << endl;
         cin >> choice;
@@ -163,3 +170,55 @@ void Studs::sortStudents() {
               });
 }
 
+void Studs::generateLists(int n){
+    std::ofstream out("generatedList.txt");
+    Student temp;
+    int number,mark;
+    srand(0);
+    for(int i=1;i<=n;i++){
+        temp.firstName = "Vardas" + std::to_string(i);
+        out << temp.firstName << " ";
+        temp.lastName = "Pavarde" + std::to_string(i);
+        out << temp.lastName << " ";
+        number = 1+(double)rand()/RAND_MAX*9;
+        out << number << " ";
+        for(int j=0;j<number;j++){
+            mark = 1+(double)rand()/RAND_MAX*9;
+            temp.setMark(mark);
+            out << mark << " ";
+        }
+        temp.examScore = 1+(double)rand()/RAND_MAX*9;
+        out << temp.examScore << endl;
+        students.push_back(temp);
+    }
+    out.close();
+}
+
+void Studs::sortByMarks(){
+    std::ofstream out1("vargsiukai.txt");
+    std::ofstream out2("kietekai.txt");
+    for(auto student:students){
+        if(student.calculateScore() < 5.0){
+            out1 << student.firstName << " " << student.lastName << " " << fixed << setprecision(2) << student.calculateScore() << endl;
+        }
+        else{
+            out2 << student.firstName << " " << student.lastName << " " << fixed << setprecision(2) << student.calculateScore() << endl;
+        }
+    }
+    out1.close();
+    out2.close();
+}
+
+//Timer functions
+#include "timer.h"
+
+void Timer::startClock() {
+    start = std::chrono::high_resolution_clock::now();
+}
+
+void Timer::endClock(string opName) {
+    end = std::chrono::high_resolution_clock::now();
+    duration = end-start;
+    cout << "\x1B[31m" << opName <<  " : " << duration.count() << " s" << "\033[0m\t\t" << std::endl;
+
+}

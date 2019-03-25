@@ -15,6 +15,8 @@ struct Studs{
     void checkLongestNames();
     bool checkFile(const char *filename);
     bool isNumber(const std::string& s);
+    void generateLists(int n);
+    void sortByMarks();
 };
 
 #endif //STUDS_H
