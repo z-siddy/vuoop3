@@ -14,21 +14,21 @@ Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inž
 ### v0.4
 
 #### Programos greičio spartos analizė
-**10 studentų generacija:**
+- **10 studentų generacija:**
     - [Nuotrauka](https://imgur.com/GflAb6K.png)
-**100 studentų generacija:**
+- **100 studentų generacija:**
     - [Nuotrauka](https://imgur.com/mxKBVGF.png)
     - [Nuotrauka](https://imgur.com/xZqENN0.png)
-**1000 studentų generacija:**
+- **1000 studentų generacija:**
     - [Nuotrauka](https://imgur.com/RquAXVO.png)
     - [Nuotrauka](https://imgur.com/3GHTgBF.png)
-**10000 studentų generacija:**
+- **10000 studentų generacija:**
     - [Nuotrauka](https://imgur.com/0jEeez4.png)
     - [Nuotrauka](https://imgur.com/WYi0t6p.png)
-**Maximali studentų generacija (29000 studentų):**
+- **Maksimali studentų generacija (29000 studentų):**
     - [Nuotrauka](https://imgur.com/xJ9jNFd.png)
     - Rezultatas nebuvo išvedamas į konsolę, nes per didelis studentų skaičius priverstų programą sunaudoti per didelę dalį atminties bei gali priversti nutraukti tolimesnį programos vykdymą dėl apkrovos procesoriui.
-**CPU apkrova, kai studentų generuojama daugiau, negu 29000:**
+- **CPU apkrova, kai studentų generuojama daugiau, negu 29000:**
     - [Nuotrauka](https://imgur.com/AOXIeAf.png)
 
 ### v0.5
