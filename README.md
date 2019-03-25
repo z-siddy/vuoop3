@@ -43,4 +43,51 @@ Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inž
 
 ### v1.0 Final version
 
+#### The two strategy comparison (speed test):
+
+**VECTORS:**
+- 1st WAY
+```
+Data input : 12.2456 s
+List generation : 2.30376 s
+Output file creation : 31.3149 s
+```
+- 2nd WAY
+```
+Data input : 23.1446 s
+List generation : 2.9846 s
+Output file creation : 25.7201 s
+```
+
+**DEQUE:**
+- 1st WAY
+```
+Data input : 7.1919 s
+List generation : 9.05115 s
+Output file creation : 59.7953 s
+```
+- 2nd WAY
+```
+Data input : 8.54892 s
+List generation : 8.01951 s
+Output file creation : 23.987 s
+```
+
+**LIST:**
+- 1st WAY
+```
+Data input : 6.75256 s
+List generation : 2.51547 s
+Output file creation : 30.6666 s
+```
+- 2nd WAY
+```
+Data input : 23.9859 s
+List generation : 4.11313 s
+Output file creation : 19.7126 s
+```
+
 ### Kaip paleisti programą?
+
+Jeigu naudojate CLion, tai paleisti programą galima su CMake pagalba. O jeigu norite paleisti programą su terminalu (CMD prompt), tai šitas kodas tai padarys:
+```g++ -o main main.cpp headers/studs.h headers/student.h headers/main.h headers/functions.cpp```
