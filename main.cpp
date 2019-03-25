@@ -3,7 +3,7 @@
 #include "headers/student.h"
 #include "headers/timer.h"
 #define input "kursiokai.txt"
-#define generateNumber 10000
+#define generateNumber 15000
 
 int main() {
     Timer timer;
@@ -13,20 +13,20 @@ int main() {
       A.readFileData(input);
     } catch (const char* msg) {
         
-        std::cerr <<  "\x1B[31m" << msg << "\033[0m\t\t" << endl;
+        std::cerr << msg << endl;
     }
     timer.endClock("Read data from file");
-    // timer.startClock();
-    // A.inputData();
-    // timer.endClock("Data input");
+    timer.startClock();
+    A.inputData();
+    timer.endClock("Data input");
     timer.startClock();
     A.generateLists(generateNumber);
     timer.endClock("List generation");
     // timer.startClock();
     // A.printResult();
     // timer.endClock("Printing results");
-    // timer.startClock();
-    // A.sortByMarks();
-    // timer.endClock("Output file creation");
+    timer.startClock();
+    A.sortByMarks();
+    timer.endClock("Output file creation");
     return 0;
 }
