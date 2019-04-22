@@ -16,9 +16,7 @@ int main() {
         std::cerr << msg << endl;
     }
     timer.endClock("Read data from file");
-    timer.startClock();
     A.inputData();
-    timer.endClock("Data input");
     timer.startClock();
     A.generateLists(generateNumber);
     timer.endClock("List generation");

@@ -2,35 +2,36 @@
 
 #include "student.h"
 
-    double Student::calculateScore(){
+    double Student::calculateScore() const{
         double sum = 0;
-        for(double mark : homework)
+        for(double mark : homework_)
             sum += mark;
-        return (0.4*(sum/homework.size())) + (0.6*examScore);
+        return (0.4*(sum/homework_.size())) + (0.6*examScore_);
     };
     double Student::median() {
         double m;
-        sort(homework.begin(),homework.end());
-        if(homework.size()%2 == 0){
-            m = (homework[homework.size()/2]+homework[(homework.size()/2)-1])/2.0;
+        sort(homework_.begin(),homework_.end());
+        if(homework_.size()%2 == 0){
+            m = (homework_[homework_.size()/2]+homework_[(homework_.size()/2)-1])/2.0;
         }
         else{
-            m = homework[homework.size()/2];
+            m = homework_[homework_.size()/2];
         }
-        return (m*0.4) + (0.6*examScore);
+        return (m*0.4) + (0.6*examScore_);
     }
     void Student::setName(string name){
-        firstName = name;
+        firstName_ = name;
     }
     void Student::setLastName(string lname){
-        lastName = lname;
+        lastName_ = lname;
     }
     void Student::setMark(double mark){
-        homework.push_back(mark);
+        homework_.push_back(mark);
     }
     void Student::setExam(double exam){
-        examScore = exam;
+        examScore_ = exam;
     }
+
 
 //Studs FUNCTIONS ---------------------------------------------------------------------------------
 
@@ -147,10 +148,10 @@ void Studs::inputData(){
 void Studs::checkLongestNames(){
     int fname=longestName,lname=longestLastName;
     for (const auto &el : students){
-        if(el.firstName.length() > fname)
-            fname = el.firstName.length();
-        if(el.lastName.length() > lname)
-            lname = el.lastName.length();
+        if(el.getName().length() > fname)
+            fname = el.getName().length();
+        if(el.getLastName().length() > lname)
+            lname = el.getLastName().length();
     }
     longestName = fname;
     longestLastName = lname;
@@ -223,14 +224,14 @@ void Studs::printResult(){
         cout << left << setw(longestName+1) << "Vardas" << setw(longestLastName+1) << "Pavarde" << setw(20) << "Galutinis (Vid.)" << setw(15) << "Galutinis (Med.)" << endl;
         cout << "---------------------------------------------------------------" << endl;
         for(auto student:students){
-            cout << left << setw(longestName+1) << student.firstName << setw(longestLastName+1) << student.lastName << setw(20) << fixed << setprecision(2) << student.calculateScore() << setw(15) << fixed << setprecision(2) << student.median() << endl;
+            cout << left << setw(longestName+1) << student.getName() << setw(longestLastName+1) << student.getLastName() << setw(20) << fixed << setprecision(2) << student.calculateScore() << setw(15) << fixed << setprecision(2) << student.median() << endl;
         }
 }
 
 void Studs::sortStudents() {
     std::sort(students.begin(), students.end(),
               [](Student& lhs, Student& rhs) {
-                  return lhs.firstName > rhs.firstName;
+                  return lhs.getName() > rhs.getName();
               });
 }
 
@@ -240,10 +241,10 @@ void Studs::generateLists(int n){
     int number,mark;
     srand(0);
     for(int i=1;i<=n;i++){
-        temp.firstName = "Vardas" + std::to_string(i);
-        out << temp.firstName << " ";
-        temp.lastName = "Pavarde" + std::to_string(i);
-        out << temp.lastName << " ";
+        temp.setName("Vardas" + std::to_string(i));
+        out << temp.getName() << " ";
+        temp.setLastName("Pavarde" + std::to_string(i));
+        out << temp.getLastName() << " ";
         number = 1+(double)rand()/RAND_MAX*9;
         out << number << " ";
         for(int j=0;j<number;j++){
@@ -251,8 +252,8 @@ void Studs::generateLists(int n){
             temp.setMark(mark);
             out << mark << " ";
         }
-        temp.examScore = 1+(double)rand()/RAND_MAX*9;
-        out << temp.examScore << endl;
+        temp.setExam(1+(double)rand()/RAND_MAX*9);
+        out << temp.getExamScore() << endl;
         students.push_back(temp);
     }
     out.close();
@@ -265,12 +266,12 @@ void Studs::sortByMarks(){
     for(auto student:students){
         if(student.calculateScore() < 5.0){
             vargsiukai.push_back(student);
-            out1 << student.firstName << " " << student.lastName << " " << fixed << setprecision(2) << student.calculateScore() << endl;
+            out1 << student.getName() << " " << student.getLastName() << " " << fixed << setprecision(2) << student.calculateScore() << endl;
             //students.erase(students.begin() + it);
         }
         else{
             kietekai.push_back(student);
-            out2 << student.firstName << " " << student.lastName << " " << fixed << setprecision(2) << student.calculateScore() << endl;
+            out2 << student.getName() << " " << student.getLastName() << " " << fixed << setprecision(2) << student.calculateScore() << endl;
         }
         //it++;
     }
