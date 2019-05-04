@@ -3,3 +3,7 @@ kietekai.txt
 generatedList.txt
 cmake-build-debug/*
 !cmake-build-debug/kursiokai.txt
+.idea
+.vscode
+kursiokai.txt
+main.exe
