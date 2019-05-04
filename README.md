@@ -1,5 +1,87 @@
 # VU OOP
-## Duomenų apdorojimas
+## Naujų tipų kūrimas ir jų naudojimas
+## Intro
+Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inžinerija).
+[UŽDUOTIES PUSLAPIS](https://github.com/objprog/paskaitos2019/wiki/3-oji-u%C5%BEduotis)
+
+## Versijos
+### v1.1
+
+Nuo struktūrų išemigruota prie klasių. Sukurti GET'eriai bei SET'eriai, pagalbiniu darbui su klasių objektais. Atitinkamai sutvarkytos ir perdarytos funkcijos. Atlikti realizacijos spartos testai su vector tipo konteineriu. Atlikta analizė su flag'ais: O1, O2, O3. 
+
+#### Realizacijos spartos testai
+
+10 studentų:
+
+Klasės
+```
+List generation : 0.0009937 s
+Sorting students : 0 s
+Grouping students : 0 s
+Outputting students to files : 0.0009602 s
+```
+
+Struktūros
+```
+[Nuotrauka](https://imgur.com/GflAb6K.png)
+```
+
+1000 studentų:
+
+Klasės
+```
+List generation : 0.0030203 s
+Sorting students : 0.001005 s
+Grouping students : 0.0498661 s
+Outputting students to files : 0.0050058 s
+```
+
+Struktūros
+```
+[Nuotrauka](https://imgur.com/RquAXVO.png)
+```
+
+10000 studentų:
+
+Klasės
+```
+List generation : 0.0279438 s
+Sorting students : 0.0178996 s
+Grouping students : 5.04227 s
+Outputting students to files : 0.0359407 s
+```
+
+Struktūros
+```
+[Nuotrauka](https://imgur.com/0jEeez4.png)
+```
+
+#### Analizė su flag'ais (10000 studentų)
+
+O1
+```
+List generation : 0.0772052 s
+Sorting students : 0.111865 s
+Grouping students : 17.0848 s
+Outputting students to files : 0.0966831 s
+```
+O2
+```
+List generation : 0.0852258 s
+Sorting students : 0.102242 s
+Grouping students : 16.3649 s
+Outputting students to files : 0.0646554 s
+```
+O3
+```
+List generation : 0.0881155 s
+Sorting students : 0.109506 s
+Grouping students : 16.2665 s
+Outputting students to files : 0.0643469 s
+```
+
+
+## Duomenų apdorojimas (Ankstesnė užduotis)
 ## Intro
 Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inžinerija).
 [UŽDUOTIES PUSLAPIS](https://github.com/objprog/paskaitos2019/wiki/2-oji-u%C5%BEduotis)
@@ -89,6 +171,7 @@ Data input : 23.9859 s
 List generation : 4.11313 s
 Output file creation : 19.7126 s
 ```
+
 
 ### Kaip paleisti programą?
 

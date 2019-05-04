@@ -11,22 +11,14 @@ private:
   int examScore_;
   std::vector<double> homework_;
 public:
-  Student() : examScore_(0) { }
-  Student(std::istream& is);
   inline std::string getName() const { return firstName_; }
   inline std::string getLastName() const { return lastName_; }
-  int getExamScore() const { return examScore_; }
-  double calculateScore() const;
-  std::istream& readStudent(std::istream&);
-  void setName(string name);
-  void setLastName(string lname);
-  void setMark(double mark);
-  void setExam(double exam);
+  void setMark(int mark) { homework_.push_back(mark); };
+  void setExam(int exam) { examScore_ = exam; };
+  double calculateScore();
   double median();
+  Student(string fname, string lname): firstName_(std::move(fname)), lastName_(std::move(lname)) {};
 };
 
-bool compare(const Student&, const Student&);
-bool compareByLastName(const Student&, const Student&);
-bool compareByScore(const Student&, const Student&);
 
 #endif //STUDENT_H

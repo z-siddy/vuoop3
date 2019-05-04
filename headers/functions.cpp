@@ -1,46 +1,29 @@
 //Student functions---------------------------------------------------------------------------------------
 
 #include "student.h"
+#include "timer.h"
+#include "studs.h"
 
-    double Student::calculateScore() const{
-        double sum = 0;
-        for(double mark : homework_)
-            sum += mark;
-        return (0.4*(sum/homework_.size())) + (0.6*examScore_);
-    };
-    double Student::median() {
-        double m;
-        sort(homework_.begin(),homework_.end());
-        if(homework_.size()%2 == 0){
-            m = (homework_[homework_.size()/2]+homework_[(homework_.size()/2)-1])/2.0;
-        }
-        else{
-            m = homework_[homework_.size()/2];
-        }
-        return (m*0.4) + (0.6*examScore_);
-    }
-    void Student::setName(string name){
-        firstName_ = name;
-    }
-    void Student::setLastName(string lname){
-        lastName_ = lname;
-    }
-    void Student::setMark(double mark){
-        homework_.push_back(mark);
-    }
-    void Student::setExam(double exam){
-        examScore_ = exam;
-    }
+double Student::calculateScore() {
+    double sum = 0;
+    for(double mark : homework_)
+        sum += mark;
+    if (homework_.empty()) throw "Dalyba iš 0";
+    return (sum / homework_.size()) * 0.4 + 0.6 * examScore_;
+}
+double Student::median() {
+    std::sort(homework_.begin(), homework_.end());
+    double m;
+    if(homework_.size() % 2 == 0)
+        m = (homework_[homework_.size() / 2] + homework_[(homework_.size() / 2) - 1]) / 2.;
+    else
+        m = homework_[homework_.size() / 2];
+    return m * 0.4 + 0.6 * examScore_;
+}
 
 
 //Studs FUNCTIONS ---------------------------------------------------------------------------------
 
-#include "studs.h"
-
-bool Studs::checkFile(const char *fileName){
-    std::ifstream infile(fileName);
-    return infile.good();
-}
 
 bool Studs::stringValidation(const string x) {
     string spec_char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
@@ -49,13 +32,31 @@ bool Studs::stringValidation(const string x) {
     return true;
 }
 
+void Studs::addStudent(Student student) {
+    checkLongestName(student);
+    students.push_back(student);
+}
+
+void Studs::addKietekas(Student student) {
+    checkLongestName(student);
+    kietekai.push_back(student);
+}
+
+void Studs::addVargsiukas(Student student) {
+    checkLongestName(student);
+    vargsiukai.push_back(student);
+}
+
+void Studs::clearStudents() {
+    students.clear();
+}
+
 void Studs::inputData(){
     std::default_random_engine gen;
     std::uniform_int_distribution<int> dist(0, 10);
-    string text;
+    string text,fname,lname;
     int number, choice,mark;
     while(true){
-        Student temp;
 
         cout << "Iveskite studento varda: " << endl;
         cin >> text;
@@ -65,7 +66,7 @@ void Studs::inputData(){
             cin.ignore(256, '\n');
             cin >> text;
         }
-        temp.setName(text);
+        fname = text;
 
         cout << "Iveskite studento pavarde: " << endl;
         cin >> text;
@@ -75,7 +76,9 @@ void Studs::inputData(){
             cin.ignore(256, '\n');
             cin >> text;
         }
-        temp.setLastName(text);
+        lname = text;
+
+        Student student = Student(fname,lname);
 
         cout << "Iveskite studento namu darbu uzduociu skaiciu: " << endl;
         cin >> number;
@@ -98,7 +101,7 @@ void Studs::inputData(){
 
         if(choice == 1){
             for(int i=0;i<number;i++){
-                temp.setMark(dist(gen));
+                student.setMark(dist(gen));
             }
             cout << "Sugeneruota!" << endl;
 
@@ -114,20 +117,20 @@ void Studs::inputData(){
                     cin.ignore(256, '\n');
                     cin >> mark;
                 }
-                temp.setMark(mark);
+                student.setMark(mark);
             }
 
         }
 
         cout << "Iveskite studento egzamino rezultata: " << endl;
         cin >> number;
-        while (cin.fail()) {
+        while (!((!cin.fail()) && (number <= 10) && (number >= 1))) {
             cout << "KLAIDA! Iveskite nauja ivertinima:";
             cin.clear();
             cin.ignore(256, '\n');
             cin >> number;
         }
-        temp.setExam(number);
+        student.setExam(number);
 
         cout << "Prideti dar viena studenta? (0/1) ";
         cin >> choice;
@@ -138,36 +141,33 @@ void Studs::inputData(){
             cin >> choice;
         }
 
-        students.push_back(temp);
+        students.push_back(student);
         if(choice==0)
             return;
 
     }
 }
 
-void Studs::checkLongestNames(){
-    int fname=longestName,lname=longestLastName;
-    for (const auto &el : students){
-        if(el.getName().length() > fname)
-            fname = el.getName().length();
-        if(el.getLastName().length() > lname)
-            lname = el.getLastName().length();
-    }
-    longestName = fname;
-    longestLastName = lname;
+void Studs::checkLongestName(Student &student){
+    string n = student.getName();
+    string ln = student.getLastName();
+    const int lon = n.length();
+    const int lol = ln.length();
+    if (lon > longestName)
+        longestName = lon;
+    if (lol > longestLastName)
+        longestLastName = lol;
 }
 
-void Studs::readFileData(const char input[]){
-    if(!checkFile(input))
-    {
-        throw "Nuskaitymo failas neegzistuoja!";
-    }
+void Studs::readData(const char input[]){
+    string fname,lname;
+    std::ifstream x(input);
+    if (x.fail())
+        throw "Tekstinis duomenu failas nerastas!";
+
     string text;
     int number,mark;
-    std::ifstream x(input);
     while(true){
-        Student temp;
-
         if(x.eof())
             break;
 
@@ -177,7 +177,7 @@ void Studs::readFileData(const char input[]){
             x.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
             continue;
         }
-        temp.setName(text);
+        fname = text;
 
         x >> text;
         if(x.fail() || !stringValidation(text)) {
@@ -185,7 +185,9 @@ void Studs::readFileData(const char input[]){
             x.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
             continue;
         }
-        temp.setLastName(text);
+        lname = text;
+
+        Student student = Student(fname,lname);
 
         x >> number;
         if(x.fail()) {
@@ -201,7 +203,7 @@ void Studs::readFileData(const char input[]){
                 x.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
                 continue;
             }
-            temp.setMark(mark);
+            student.setMark(mark);
         }
 
         x >> number;
@@ -210,17 +212,16 @@ void Studs::readFileData(const char input[]){
             x.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
             continue;
         }
-        temp.setExam(number);
+        student.setExam(number);
 
-        students.push_back(temp);
+        students.push_back(student);
 
     }
+    x.close();
 }
 
 
 void Studs::printResult(){
-    checkLongestNames();
-    sortStudents();
         cout << left << setw(longestName+1) << "Vardas" << setw(longestLastName+1) << "Pavarde" << setw(20) << "Galutinis (Vid.)" << setw(15) << "Galutinis (Med.)" << endl;
         cout << "---------------------------------------------------------------" << endl;
         for(auto student:students){
@@ -235,52 +236,61 @@ void Studs::sortStudents() {
               });
 }
 
-void Studs::generateLists(int n){
-    std::ofstream out("generatedList.txt");
-    Student temp;
-    int number,mark;
-    srand(0);
-    for(int i=1;i<=n;i++){
-        temp.setName("Vardas" + std::to_string(i));
-        out << temp.getName() << " ";
-        temp.setLastName("Pavarde" + std::to_string(i));
-        out << temp.getLastName() << " ";
-        number = 1+(double)rand()/RAND_MAX*9;
-        out << number << " ";
-        for(int j=0;j<number;j++){
-            mark = 1+(double)rand()/RAND_MAX*9;
-            temp.setMark(mark);
-            out << mark << " ";
+void Studs::generateLists(int num, int marks) {
+    string name, lname;
+    std::default_random_engine gen;
+    std::uniform_int_distribution<int> dist(0, 10);
+    for(int i = 0; i < num; i++) {
+        name = "Vardas" + std::to_string(i + 1);
+        lname = "Pavarde" + std::to_string(i + 1);
+        Student student = Student(name, lname);
+        for(int j = 0; j < marks; j++) {
+            student.setMark(dist(gen));
         }
-        temp.setExam(1+(double)rand()/RAND_MAX*9);
-        out << temp.getExamScore() << endl;
-        students.push_back(temp);
+        student.setExam(dist(gen));
+        addStudent(student);
     }
-    out.close();
 }
 
-void Studs::sortByMarks(){
+void Studs::groupStudents() {
+    double fin;
+    size_t cnt = 0;
+    auto i = students.begin();
+    while(i != students.end()) {
+        try {
+            fin = i->calculateScore();
+        } catch (const char* e) {
+            i++;
+            continue;
+        }
+        if(fin != 0 && fin < 5) {
+            addVargsiukas(*(i));
+        } else {
+            std::rotate(students.begin(), i, std::next(i));
+            i++;
+            cnt++;
+        }
+        i++;
+    }
+    students.resize(cnt, Student("", ""));
+    students.shrink_to_fit();
+}
+
+void Studs::outputCreate(){
     std::ofstream out1("vargsiukai.txt");
     std::ofstream out2("kietekai.txt");
     //std::size_t it=0;
     for(auto student:students){
-        if(student.calculateScore() < 5.0){
-            vargsiukai.push_back(student);
-            out1 << student.getName() << " " << student.getLastName() << " " << fixed << setprecision(2) << student.calculateScore() << endl;
-            //students.erase(students.begin() + it);
-        }
-        else{
-            kietekai.push_back(student);
-            out2 << student.getName() << " " << student.getLastName() << " " << fixed << setprecision(2) << student.calculateScore() << endl;
-        }
-        //it++;
+        out2 << student.getName() << " " << student.getLastName() << " " << fixed << setprecision(2) << student.calculateScore() << endl;
+    }
+    for(auto student:vargsiukai){
+        out1 << student.getName() << " " << student.getLastName() << " " << fixed << setprecision(2) << student.calculateScore() << endl;
     }
     out1.close();
     out2.close();
 }
 
 //Timer functions
-#include "timer.h"
 
 void Timer::startClock() {
     start = std::chrono::high_resolution_clock::now();
