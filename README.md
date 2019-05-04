@@ -22,9 +22,7 @@ Outputting students to files : 0.0009602 s
 ```
 
 Struktūros
-```
 [Nuotrauka](https://imgur.com/GflAb6K.png)
-```
 
 1000 studentų:
 
@@ -37,9 +35,7 @@ Outputting students to files : 0.0050058 s
 ```
 
 Struktūros
-```
 [Nuotrauka](https://imgur.com/RquAXVO.png)
-```
 
 10000 studentų:
 
@@ -52,9 +48,8 @@ Outputting students to files : 0.0359407 s
 ```
 
 Struktūros
-```
 [Nuotrauka](https://imgur.com/0jEeez4.png)
-```
+
 
 #### Analizė su flag'ais (10000 studentų)
 
