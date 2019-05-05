@@ -10,7 +10,6 @@ private:
     vector<Student > kietekai;
     int longestName = 12;
     int longestLastName = 12;
-    bool stringValidation(const string x);
 public:
     void addStudent(Student student);
     void addKietekas(Student student);
@@ -24,6 +23,8 @@ public:
     void groupStudents();
     void printResult();
     void outputCreate();
+    bool stringValidation(const string x);
+    Student getRandomStudent();
     //Studs();
 };
 

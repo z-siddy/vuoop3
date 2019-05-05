@@ -30,11 +30,32 @@ int main() {
     // timer.startClock();
     // A.printResult();
     // timer.endClock("Printing results");
+    Student a = A.getRandomStudent();
     timer.startClock();
     A.groupStudents();
     timer.endClock("Grouping students");
     timer.startClock();
     A.outputCreate();
     timer.endClock("Outputting students to files");
+
+    
+    Student b = A.getRandomStudent();
+
+    cout << a << endl;
+    cout << b << endl;
+
+    if (a > b)
+        cout << "A didesnis";
+    else if (a < b)
+        cout << "B didesnis";
+    if (a == b)
+        cout << "Lygus";
+    else if (a != b)
+        cout << "Nelygus";
+
+    Student c;
+    cin >> c;
+    cout << c;
+
     return 0;
 }

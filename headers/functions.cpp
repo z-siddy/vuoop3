@@ -4,7 +4,7 @@
 #include "timer.h"
 #include "studs.h"
 
-double Student::calculateScore() {
+double Student::calculateScore() const {
     double sum = 0;
     for(double mark : homework_)
         sum += mark;
@@ -288,6 +288,19 @@ void Studs::outputCreate(){
     }
     out1.close();
     out2.close();
+}
+
+Student Studs::getRandomStudent() {
+    std::default_random_engine aaa;
+    std::uniform_int_distribution<int> dist(0, students.size());
+    aaa.seed(std::chrono::system_clock::now().time_since_epoch().count());
+    int idx = dist(aaa);
+    int i = 0;
+    for (auto & s : students) {
+        if (i == idx)
+            return s;
+        i++;
+    }
 }
 
 //Timer functions
