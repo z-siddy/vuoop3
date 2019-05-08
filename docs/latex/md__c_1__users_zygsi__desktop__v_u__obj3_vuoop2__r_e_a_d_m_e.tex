@@ -1,0 +1,214 @@
+\subsection*{Naujų tipų kūrimas ir jų naudojimas}
+
+\subsection*{Intro}
+
+Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inžinerija). \href{https://github.com/objprog/paskaitos2019/wiki/3-oji-u%C5%BEduotis}{\texttt{ UŽ\+D\+U\+O\+T\+I\+ES P\+U\+S\+L\+A\+P\+IS}}
+
+\subsection*{Versijos}
+
+\subsubsection*{v1.\+1}
+
+Nuo struktūrų išemigruota prie klasių. Sukurti G\+ET\textquotesingle{}eriai bei S\+ET\textquotesingle{}eriai, pagalbiniu darbui su klasių objektais. Atitinkamai sutvarkytos ir perdarytos funkcijos. Atlikti realizacijos spartos testai su vector tipo konteineriu. Atlikta analizė su flag\textquotesingle{}ais\+: O1, O2, O3.
+
+\subsubsection*{v1.\+2}
+
+Pridėti lyginimo operatoriai, kurie padeda palyginti studentus pagal jų galutinį balą. Pridėti taip pat ir išvedimo bei įvedimo operatoriai ($>$$>$ ir $<$$<$). Iš sugenereuotų studentų sąrašo atsitiktinai pasirenkami du studentai, kurie yra palyginami ir išvedamas rezultatas (lyginumo). Taip pat vyksta studento įvesties bei išvesties metodai, kurie iškviečiami studento operatoriais \char`\"{}$<$$<$\char`\"{} ir \char`\"{}$>$$>$\char`\"{}.
+
+\subsubsection*{v1.\+5}
+
+Sukurta abstrakčioji \char`\"{}\+Human\char`\"{} klasė, kuri yra implementuota \char`\"{}\+Student\char`\"{} klasėje. Ji naudojama \char`\"{}žmogaus\char`\"{} tipo objektas kurti, kurie saugo vardą, pavardę, turi G\+E\+T/\+S\+ET interfeisą.
+
+\paragraph*{Realizacijos spartos testai}
+
+10 studentų\+:
+
+Klasės 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{List generation : 0.0009937 s}
+\DoxyCodeLine{Sorting students : 0 s}
+\DoxyCodeLine{Grouping students : 0 s}
+\DoxyCodeLine{Outputting students to files : 0.0009602 s}
+\end{DoxyCode}
+
+
+Struktūros \href{https://imgur.com/GflAb6K.png}{\texttt{ Nuotrauka}}
+
+1000 studentų\+:
+
+Klasės 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{List generation : 0.0030203 s}
+\DoxyCodeLine{Sorting students : 0.001005 s}
+\DoxyCodeLine{Grouping students : 0.0498661 s}
+\DoxyCodeLine{Outputting students to files : 0.0050058 s}
+\end{DoxyCode}
+
+
+Struktūros \href{https://imgur.com/RquAXVO.png}{\texttt{ Nuotrauka}}
+
+10000 studentų\+:
+
+Klasės 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{List generation : 0.0279438 s}
+\DoxyCodeLine{Sorting students : 0.0178996 s}
+\DoxyCodeLine{Grouping students : 5.04227 s}
+\DoxyCodeLine{Outputting students to files : 0.0359407 s}
+\end{DoxyCode}
+
+
+Struktūros \href{https://imgur.com/0jEeez4.png}{\texttt{ Nuotrauka}}
+
+\paragraph*{Analizė su flag\textquotesingle{}ais (10000 studentų)}
+
+O1 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{List generation : 0.0772052 s}
+\DoxyCodeLine{Sorting students : 0.111865 s}
+\DoxyCodeLine{Grouping students : 17.0848 s}
+\DoxyCodeLine{Outputting students to files : 0.0966831 s}
+\end{DoxyCode}
+ O2 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{List generation : 0.0852258 s}
+\DoxyCodeLine{Sorting students : 0.102242 s}
+\DoxyCodeLine{Grouping students : 16.3649 s}
+\DoxyCodeLine{Outputting students to files : 0.0646554 s}
+\end{DoxyCode}
+ O3 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{List generation : 0.0881155 s}
+\DoxyCodeLine{Sorting students : 0.109506 s}
+\DoxyCodeLine{Grouping students : 16.2665 s}
+\DoxyCodeLine{Outputting students to files : 0.0643469 s}
+\end{DoxyCode}
+
+
+\subsection*{Duomenų apdorojimas (Ankstesnė užduotis)}
+
+\subsection*{Intro}
+
+Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inžinerija). \href{https://github.com/objprog/paskaitos2019/wiki/2-oji-u%C5%BEduotis}{\texttt{ UŽ\+D\+U\+O\+T\+I\+ES P\+U\+S\+L\+A\+P\+IS}}
+
+\subsection*{Versijos}
+
+\subsubsection*{v0.\+1}
+
+Programa nuskaito studento V/P (input), namų darbų bei egzamino rezultatus. Rezultatas išvedamas į konsolę. Vėliau panaudotos dvi skirtingos konteinerių rūšys\+: C masyvas ir vektorius. Juose saugomi namų darbų rezultatai. Pridėta atsitiktinių pažymių generacija.
+
+\subsubsection*{v0.\+2}
+
+Duomenų nuskaitymas iš {\ttfamily kursiokai.\+txt} failo. Sukurtas sulygiuotų rezultatų išvedimas į konsolę surikiavus studentus.
+
+\subsubsection*{v0.\+3}
+
+Iškeltos funkcijos bei struktūros į atskirus header failus {\ttfamily /headers/} aplanke. Panaudoti {\ttfamily exception handling} metodai, kad apsaugoti programą nuo neveikimo dėl nesamo duomenų nuskaitymo failo.
+
+\subsubsection*{v0.\+4}
+
+\paragraph*{Programos greičio spartos analizė}
+
+
+\begin{DoxyItemize}
+\item {\bfseries{10 studentų generacija\+:}}
+\begin{DoxyItemize}
+\item \href{https://imgur.com/GflAb6K.png}{\texttt{ Nuotrauka}}
+\end{DoxyItemize}
+\item {\bfseries{100 studentų generacija\+:}}
+\begin{DoxyItemize}
+\item \href{https://imgur.com/mxKBVGF.png}{\texttt{ Nuotrauka}}
+\item \href{https://imgur.com/xZqENN0.png}{\texttt{ Nuotrauka}}
+\end{DoxyItemize}
+\item {\bfseries{1000 studentų generacija\+:}}
+\begin{DoxyItemize}
+\item \href{https://imgur.com/RquAXVO.png}{\texttt{ Nuotrauka}}
+\item \href{https://imgur.com/3GHTgBF.png}{\texttt{ Nuotrauka}}
+\end{DoxyItemize}
+\item {\bfseries{10000 studentų generacija\+:}}
+\begin{DoxyItemize}
+\item \href{https://imgur.com/0jEeez4.png}{\texttt{ Nuotrauka}}
+\item \href{https://imgur.com/WYi0t6p.png}{\texttt{ Nuotrauka}}
+\end{DoxyItemize}
+\item {\bfseries{Maksimali studentų generacija (29000 studentų)\+:}}
+\begin{DoxyItemize}
+\item \href{https://imgur.com/xJ9jNFd.png}{\texttt{ Nuotrauka}}
+\item Rezultatas nebuvo išvedamas į konsolę, nes per didelis studentų skaičius priverstų programą sunaudoti per didelę dalį atminties bei gali priversti nutraukti tolimesnį programos vykdymą dėl apkrovos procesoriui.
+\end{DoxyItemize}
+\item {\bfseries{C\+PU apkrova, kai studentų generuojama daugiau, negu 29000\+:}}
+\begin{DoxyItemize}
+\item \href{https://imgur.com/AOXIeAf.png}{\texttt{ Nuotrauka}}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsubsection*{v0.\+5}
+
+\paragraph*{Programos testavimas naudojant skirtingus S\+TL konteinerius}
+
+
+\begin{DoxyItemize}
+\item \href{https://imgur.com/skcD1pY.png}{\texttt{ Vector}}
+\item \href{https://imgur.com/D1COYZj.png}{\texttt{ List}}
+\item \href{https://imgur.com/6vJbsoB.png}{\texttt{ Deque}}
+\end{DoxyItemize}
+
+\subsubsection*{v1.\+0 Final version}
+
+\paragraph*{The two strategy comparison (speed test)\+:}
+
+{\bfseries{V\+E\+C\+T\+O\+RS\+:}}
+\begin{DoxyItemize}
+\item 1st W\+AY 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Data input : 12.2456 s}
+\DoxyCodeLine{List generation : 2.30376 s}
+\DoxyCodeLine{Output file creation : 31.3149 s}
+\end{DoxyCode}
+
+\item 2nd W\+AY 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Data input : 23.1446 s}
+\DoxyCodeLine{List generation : 2.9846 s}
+\DoxyCodeLine{Output file creation : 25.7201 s}
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+{\bfseries{D\+E\+Q\+UE\+:}}
+\begin{DoxyItemize}
+\item 1st W\+AY 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Data input : 7.1919 s}
+\DoxyCodeLine{List generation : 9.05115 s}
+\DoxyCodeLine{Output file creation : 59.7953 s}
+\end{DoxyCode}
+
+\item 2nd W\+AY 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Data input : 8.54892 s}
+\DoxyCodeLine{List generation : 8.01951 s}
+\DoxyCodeLine{Output file creation : 23.987 s}
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+{\bfseries{L\+I\+ST\+:}}
+\begin{DoxyItemize}
+\item 1st W\+AY 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Data input : 6.75256 s}
+\DoxyCodeLine{List generation : 2.51547 s}
+\DoxyCodeLine{Output file creation : 30.6666 s}
+\end{DoxyCode}
+
+\item 2nd W\+AY 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Data input : 23.9859 s}
+\DoxyCodeLine{List generation : 4.11313 s}
+\DoxyCodeLine{Output file creation : 19.7126 s}
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\subsubsection*{Kaip paleisti programą?}
+
+Jeigu naudojate C\+Lion, tai paleisti programą galima su C\+Make pagalba. O jeigu norite paleisti programą su terminalu (C\+MD prompt), tai šitas kodas tai padarys\+: {\ttfamily g++ -\/o main main.\+cpp \mbox{\hyperlink{studs_8h_source}{headers/studs.\+h}} \mbox{\hyperlink{student_8h_source}{headers/student.\+h}} \mbox{\hyperlink{main_8h_source}{headers/main.\+h}} headers/functions.\+cpp} 

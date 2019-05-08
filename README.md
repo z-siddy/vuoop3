@@ -1,3 +1,4 @@
+![Project logo](https://raw.githubusercontent.com/z-siddy/vuoop3/master/logo.png)
 # VU OOP
 ## Naujų tipų kūrimas ir jų naudojimas
 ## Intro
