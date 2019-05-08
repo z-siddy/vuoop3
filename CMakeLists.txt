@@ -9,4 +9,4 @@ endif(CMAKE_COMPILER_IS_GNUCXX)
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-add_executable(vuopp2 main.cpp ./headers/main.h ./headers/student.h ./headers/studs.h ./headers/timer.h ./headers/functions.cpp)
+add_executable(vuopp2 main.cpp ./headers/main.h ./headers/student.h ./headers/studs.h ./headers/timer.h ./headers/functions.cpp headers/Human.h)

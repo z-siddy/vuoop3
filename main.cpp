@@ -45,13 +45,13 @@ int main() {
     cout << b << endl;
 
     if (a > b)
-        cout << "A didesnis";
+        cout << "A didesnis\n";
     else if (a < b)
-        cout << "B didesnis";
+        cout << "B didesnis\n";
     if (a == b)
-        cout << "Lygus";
+        cout << "Lygus\n";
     else if (a != b)
-        cout << "Nelygus";
+        cout << "Nelygus\n";
 
     Student c;
     cin >> c;

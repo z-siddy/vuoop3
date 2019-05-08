@@ -1,18 +1,16 @@
 #include "main.h"
+#include "Human.h"
 
 #ifndef STUDENT_H
 #define STUDENT_H
 
 
-class Student {
+class Student : public Human {
 private:
-  std::string firstName_;
-  std::string lastName_;
   int examScore_;
   std::vector<double> homework_;
 public:
-  inline std::string getName() const { return firstName_; }
-  inline std::string getLastName() const { return lastName_; }
+  void getTitle() { cout  << "Studentas"; };
   void setMark(int mark) { homework_.push_back(mark); };
   void setExam(int exam) { examScore_ = exam; };
   double calculateScore() const;
@@ -30,11 +28,11 @@ public:
         int number, choice,mark;
         cout << "Iveskite studento varda: " << endl;
         x >> text;
-        a.firstName_ = text;
+        a.setName(text);
 
         cout << "Iveskite studento pavarde: " << endl;
         x >> text;
-        a.lastName_ = text;
+        a.setLastname(text);
 
         cout << "Iveskite studento namu darbu uzduociu skaiciu: " << endl;
         x >> number;
@@ -72,7 +70,7 @@ public:
         return o;
   }
   Student () {};
-  Student(string fname, string lname): firstName_(std::move(fname)), lastName_(std::move(lname)) {};
+  Student(string fname, string lname): Human(fname, lname){};
 };
 
 
