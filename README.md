@@ -9,6 +9,14 @@ Užduotis atlikta Objektinio programavimo kursui (VU Informacinių sistemų inž
 
 Nuo struktūrų išemigruota prie klasių. Sukurti GET'eriai bei SET'eriai, pagalbiniu darbui su klasių objektais. Atitinkamai sutvarkytos ir perdarytos funkcijos. Atlikti realizacijos spartos testai su vector tipo konteineriu. Atlikta analizė su flag'ais: O1, O2, O3. 
 
+### v1.2
+
+Pridėti lyginimo operatoriai, kurie padeda palyginti studentus pagal jų galutinį balą. Pridėti taip pat ir išvedimo bei įvedimo operatoriai (>> ir <<). Iš sugenereuotų studentų sąrašo atsitiktinai pasirenkami du studentai, kurie yra palyginami ir išvedamas rezultatas (lyginumo). Taip pat vyksta studento įvesties bei išvesties metodai, kurie iškviečiami studento operatoriais "<<" ir ">>".
+
+### v1.5
+
+Sukurta abstrakčioji "Human" klasė, kuri yra implementuota "Student" klasėje. Ji naudojama "žmogaus" tipo objektas kurti, kurie saugo vardą, pavardę, turi GET/SET interfeisą.  
+
 #### Realizacijos spartos testai
 
 10 studentų:
