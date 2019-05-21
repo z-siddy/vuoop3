@@ -7,6 +7,7 @@
 #define markNumber 10
 
 int main() {
+
     Studs A;
     Timer timer;
 //    timer.startClock();
@@ -38,7 +39,7 @@ int main() {
     A.outputCreate();
     timer.endClock("Outputting students to files");
 
-    
+
     Student b = A.getRandomStudent();
 
     cout << a << endl;

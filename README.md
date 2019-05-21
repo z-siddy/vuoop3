@@ -18,6 +18,10 @@ Pridėti lyginimo operatoriai, kurie padeda palyginti studentus pagal jų galuti
 
 Sukurta abstrakčioji "Human" klasė, kuri yra implementuota "Student" klasėje. Ji naudojama "žmogaus" tipo objektas kurti, kurie saugo vardą, pavardę, turi GET/SET interfeisą.  
 
+### v2.0
+
+Sukurta dokumentacija su Doxygen, pridėti testavimai su Catch biblioteka (unit testing), sutvarkytos repozitorijos šiukšlės, stilizuotas README.md failas bei pateikta užduoties galutinė versija!
+
 #### Realizacijos spartos testai
 
 10 studentų:
@@ -84,6 +88,48 @@ Grouping students : 16.2665 s
 Outputting students to files : 0.0643469 s
 ```
 
+### UNIT TESTING (Naudojant Catch biblioteką)
+#### Testavimo atvejis
+```
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
+#include <string>
+
+
+std::string testAWord(std::string x){
+    return x + " is a word!";
+}
+
+
+    TEST_CASE( "Words are tested", "[word]" ) {
+        REQUIRE( testAWord("Car") == "Car is a word!" );
+        REQUIRE( testAWord("House") == "Horse is a word!" );
+    }
+```
+
+#### Rezultatas
+```
+unit.exe is a Catch v2.7.2 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Words are tested
+-------------------------------------------------------------------------------
+unit_testing.cpp:16
+...............................................................................
+
+unit_testing.cpp:18: FAILED:
+  REQUIRE( testAWord("House") == "Horse is a word!" )
+with expansion:
+  "House is a word!" == "Horse is a word!"
+
+===============================================================================
+test cases: 1 | 1 failed
+assertions: 2 | 1 passed | 1 failed
+
+```
+
+Šio testavimo filosofija yra labai paprasta - programos funkcijos tikrinamos su rezultatais, kuriuos tikimasi gauti. Taip pat galime testuoti ir klasės/struktūras, kurios gali turėti nemažai funkcijų. Tai leidžia padaryti `SECTION` funkcija, kuri priklauso Catch bibliotekai. Pirmo nesėkmingo testo rezultatas yra išvedamas ir tolimesni testavimai nebedaromi.
 
 ## Duomenų apdorojimas (Ankstesnė užduotis)
 ## Intro
