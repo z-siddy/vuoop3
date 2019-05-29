@@ -25,7 +25,7 @@ public:
     void outputCreate();
     bool stringValidation(const string x);
     Student getRandomStudent();
-    //Studs();
+    
 };
 
 #endif //STUDS_H
