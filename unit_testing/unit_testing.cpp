@@ -5,16 +5,21 @@
 
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-#include <string>
+#include "../headers/functions.cpp"
+#include "../headers/Human.h"
+#include "../headers/main.h"
+#include "../headers/studs.h"
+#include "../headers/student.h"
 
 
-std::string testAWord(std::string x){
-    return x + " is a word!";
-}
 
+    TEST_CASE( "Students are tested", "[student]" ) {
+        Student test = Student("Vardas", "Pavarde");
+        REQUIRE(  test.getLastName() == "Pavarde" );
 
-    TEST_CASE( "Words are tested", "[word]" ) {
-        REQUIRE( testAWord("Car") == "Car is a word!" );
-        REQUIRE( testAWord("House") == "Horse is a word!" );
+        test.setExam(10);
+        test.setMark(10);
+        REQUIRE( test.calculateScore() == 10 );
+    REQUIRE(  test.getLastName() == "Pavarda" );
     }
 

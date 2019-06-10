@@ -91,7 +91,7 @@ void Studs::inputData(){
 
         cout << "Ar norite generuoti atsitiktinius pazymius? (0/1)" << endl;
         cin >> choice;
-        while(!((!cin.fail()) && (choice == 0) || (choice == 1)))
+        while(!(((!cin.fail()) && (choice == 0)) || (choice == 1)))
         {
             cout << "KLAIDA! Iveskite tinkama pasirinkima (0/1):";
             cin.clear();
@@ -134,7 +134,7 @@ void Studs::inputData(){
 
         cout << "Prideti dar viena studenta? (0/1) ";
         cin >> choice;
-        while(!((!cin.fail()) && (choice == 0) || (choice == 1))) {
+        while(!(((!cin.fail()) && (choice == 0)) || (choice == 1))) {
             cout << "KLAIDA! Iveskite nauja pasirinkima (0/1):";
             cin.clear();
             cin.ignore(256, '\n');
@@ -272,7 +272,7 @@ void Studs::groupStudents() {
         }
         i++;
     }
-    students.resize(cnt, Student("", ""));
+    students.resize(cnt);
     students.shrink_to_fit();
 }
 
@@ -292,7 +292,7 @@ void Studs::outputCreate(){
 
 Student Studs::getRandomStudent() {
     std::default_random_engine aaa;
-    std::uniform_int_distribution<int> dist(0, students.size());
+    std::uniform_int_distribution<size_t> dist(0, students.size());
     aaa.seed(std::chrono::system_clock::now().time_since_epoch().count());
     int idx = dist(aaa);
     int i = 0;
